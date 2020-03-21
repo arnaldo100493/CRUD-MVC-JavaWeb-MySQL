@@ -67,7 +67,7 @@ and open the template in the editor.
                                 <td><%=persona.getApellido()%></td>
                                 <td>
                                     <a href="./persona?accion=editar&id=<%=persona.getIdPersona()%>" class="btn btn-warning">Editar</a>
-                                    <a href="#" class="btn btn-danger" style="margin-left: 10px;">Eliminar</a>
+                                    <a href="./persona?accion=eliminar&id=<%=persona.getIdPersona()%>" class="btn btn-danger" style="margin-left: 10px;">Eliminar</a>
                                 </td>
                             </tr>
                             <%}%>

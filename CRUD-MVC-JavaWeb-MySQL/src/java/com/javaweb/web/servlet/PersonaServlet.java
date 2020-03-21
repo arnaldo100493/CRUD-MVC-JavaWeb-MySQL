@@ -60,6 +60,7 @@ public class PersonaServlet extends HttpServlet {
             acceso = listar;
         } else if (accion.equalsIgnoreCase("editar")) {
             //int id = Integer.parseInt(request.getParameter("id"));
+            //request.setAttribute("idPersona", id);
             request.setAttribute("idPersona", request.getParameter("id"));
             acceso = editar;
         } else if (accion.equalsIgnoreCase("Actualizar")) {
@@ -70,6 +71,13 @@ public class PersonaServlet extends HttpServlet {
             Persona persona = new Persona(idPersona, dni, nombre, apellido);
             PersonaControlador personaControlador = new PersonaControlador();
             personaControlador.editar(persona);
+            acceso = listar;
+        } else if (accion.equalsIgnoreCase("eliminar")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Persona persona = new Persona();
+            PersonaControlador personaControlador = new PersonaControlador();
+            persona.setIdPersona(id);
+            personaControlador.eliminar(id);
             acceso = listar;
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher(acceso);
